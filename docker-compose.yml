@@ -25,7 +25,8 @@ services:
             - 11013:80
 
     users:
-        image: usersapi:latest
+            #image: usersapi:latest
+        build: ./users
         volumes:
             - ./users:/javaapp
         ports:
