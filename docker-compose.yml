@@ -1,0 +1,32 @@
+version: '3'
+services:
+    dogs:
+        build: ./dogs
+        deploy:
+            mode: replicated
+            replicas: 2
+        volumes:
+            - ./dogs:/app
+        ports:
+            - 11011:80
+        
+    foods:
+        build: ./foods
+        volumes:
+            - ./foods:/app
+        ports:
+            - 11012:80
+      
+    bikes:
+        build: ./bikes
+        volumes:
+            - ./bikes:/app
+        ports:
+            - 11013:80
+
+    users:
+        image: usersapi:latest
+        volumes:
+            - ./users:/javaapp
+        ports:
+            - 11014:8080
